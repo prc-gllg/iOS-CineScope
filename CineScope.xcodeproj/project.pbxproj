@@ -17,6 +17,9 @@
 		3227B8742A989550005529ED /* MovieModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8732A989550005529ED /* MovieModels.swift */; };
 		3227B8772A98A493005529ED /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8762A98A493005529ED /* Data.swift */; };
 		3270319E2A9B9D2300FF0A84 /* MediaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270319D2A9B9D2300FF0A84 /* MediaListViewModel.swift */; };
+		327031A02A9BB6DA00FF0A84 /* MediaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */; };
+		327031A32A9BB8F700FF0A84 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 327031A22A9BB8F700FF0A84 /* URLImage */; };
+		327031A52A9BB8F700FF0A84 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = 327031A42A9BB8F700FF0A84 /* URLImageStore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,7 @@
 		3227B8732A989550005529ED /* MovieModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModels.swift; sourceTree = "<group>"; };
 		3227B8762A98A493005529ED /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		3270319D2A9B9D2300FF0A84 /* MediaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewModel.swift; sourceTree = "<group>"; };
+		3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				327031A52A9BB8F700FF0A84 /* URLImageStore in Frameworks */,
+				327031A32A9BB8F700FF0A84 /* URLImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +53,7 @@
 		3227B8522A98926E005529ED = {
 			isa = PBXGroup;
 			children = (
+				3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */,
 				3227B85D2A98926E005529ED /* CineScope */,
 				3227B85C2A98926E005529ED /* Products */,
 			);
@@ -117,6 +124,10 @@
 			dependencies = (
 			);
 			name = CineScope;
+			packageProductDependencies = (
+				327031A22A9BB8F700FF0A84 /* URLImage */,
+				327031A42A9BB8F700FF0A84 /* URLImageStore */,
+			);
 			productName = CineScope;
 			productReference = 3227B85B2A98926E005529ED /* CineScope.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +156,9 @@
 				Base,
 			);
 			mainGroup = 3227B8522A98926E005529ED;
+			packageReferences = (
+				327031A12A9BB8F700FF0A84 /* XCRemoteSwiftPackageReference "url-image" */,
+			);
 			productRefGroup = 3227B85C2A98926E005529ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,6 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				327031A02A9BB6DA00FF0A84 /* MediaListCell.swift in Sources */,
 				3227B8772A98A493005529ED /* Data.swift in Sources */,
 				3227B8682A989271005529ED /* Persistence.swift in Sources */,
 				3227B8612A98926E005529ED /* ContentView.swift in Sources */,
@@ -377,6 +392,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		327031A12A9BB8F700FF0A84 /* XCRemoteSwiftPackageReference "url-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmytro-anokhin/url-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		327031A22A9BB8F700FF0A84 /* URLImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 327031A12A9BB8F700FF0A84 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImage;
+		};
+		327031A42A9BB8F700FF0A84 /* URLImageStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 327031A12A9BB8F700FF0A84 /* XCRemoteSwiftPackageReference "url-image" */;
+			productName = URLImageStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		3227B8692A989271005529ED /* CineScope.xcdatamodeld */ = {

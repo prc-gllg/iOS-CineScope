@@ -27,25 +27,27 @@ struct FetchResult: Codable, Identifiable {
     let originalTitleText: TitleText?   //TitleText
     let releaseYear: ReleaseYear?         //ReleaseYear
     let releaseDate: ReleaseDate?         //ReleaseDate
-/**
+
     let ratingsSummary: RatingsSummary?
- */
+    let genres: Genres?
+    let runtime: Runtime?
+    let plot: Plot?
+
 
     enum CodingKeys: String, CodingKey {
         case uid = "_id"
         case id, primaryImage, titleType, titleText, originalTitleText, releaseYear, releaseDate
+        case ratingsSummary, genres, runtime, plot
     }
 }
 
 
 struct PrimaryImage: Codable {
-    let id, url, typeName: String?
+    let id, url: String?
     let width, height: Int?
-//    let caption: String //ommit this later
     
     enum CodingKeys: String, CodingKey {
         case id, width, height, url
-        case typeName = "__typename"
     }
 }
 
@@ -59,34 +61,98 @@ struct TitleType: Codable {
 }
 
 struct TitleText: Codable {
-    let text, typeName: String?
+    let text: String?
     
     enum CodingKeys: String, CodingKey {
         case text
-        case typeName = "__typename"
     }
 }
 
 struct ReleaseYear: Codable {
-    let year: Int?
-    let endYear: Int?
-    let typeName: String?
+    let year, endYear: Int?
     
     enum CodingKeys: String, CodingKey {
         case year, endYear
-        case typeName = "__typename"
     }
 }
 
 struct ReleaseDate: Codable {
     let day, month, year: Int?
-    let typeName: String?
     
     enum CodingKeys: String, CodingKey {
         case day, month, year
-        case typeName = "__typename"
     }
 }
 
+struct RatingsSummary: Codable {
+    let aggregateRating: Float?
+    let voteCount: Int?
+    enum CodingKeys: String, CodingKey {
+        case aggregateRating, voteCount
+    }
+}
 
+struct Genres: Codable {
+    let text, id: String?
+    enum CodingKeys: String, CodingKey {
+        case text, id
+    }
+}
 
+struct Runtime: Codable {
+    struct DisplayableProperty: Codable {
+        struct Value: Codable {
+            let plainText: String?
+            enum CodingKeys: String, CodingKey {
+                case plainText
+            }
+        }
+        let value: Value?
+    }
+    let seconds: Int?
+    let displayableProperty: DisplayableProperty?
+    
+    enum CodingKeys: String, CodingKey {
+        case seconds, displayableProperty
+    }
+}
+
+struct Plot: Codable {
+    struct PlotText: Codable {
+        let plainText: String?
+        enum CodingKeys: String, CodingKey {
+            case plainText
+        }
+    }
+    struct Language: Codable {
+        let id: String?
+        enum CodingKeys: String, CodingKey {
+            case id
+        }
+    }
+    
+    let plotText: PlotText?
+    let language: Language?
+    
+    enum CodingKeys: String, CodingKey {
+        case plotText, language
+    }
+}
+
+//MARK: - MockData
+
+struct MockMovieData {
+    static let sampleMovie = FetchResult(uid: "123456789",
+                                             id: "00000",
+                                             primaryImage: nil,
+                                             titleType: nil,
+                                             titleText: TitleText(text: "Movieeeee"),
+                                             originalTitleText: TitleText(text: "Movieeeee"),
+                                             releaseYear: nil,
+                                             releaseDate: nil,
+                                             ratingsSummary: RatingsSummary(aggregateRating: 6.463, voteCount: 49875),
+                                             genres: Genres(text: "Action", id: "Eng"),
+                                             runtime: nil,
+                                             plot: Plot(plotText: Plot.PlotText(plainText: "Plot plot plot plot"), language: Plot.Language(id: "English")))
+    static let movies = [sampleMovie, sampleMovie, sampleMovie]
+}

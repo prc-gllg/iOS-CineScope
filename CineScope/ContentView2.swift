@@ -12,8 +12,12 @@ struct ContentView2: View {
     var body: some View {
         NavigationView {
             List(viewModel.mediaList, id: \.id) { media in
-                Text(media.titleText?.text ?? "No Title")
+                VStack {
+                    MediaListCell(media: media)
+                }
             }
+            .listStyle(.plain)
+            .navigationTitle("Movie List")
         }
 //        ScrollView {
 //            VStack {
