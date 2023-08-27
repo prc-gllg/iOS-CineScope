@@ -18,7 +18,7 @@ struct FetchResults: Codable {
     }
 }
 
-struct FetchResult: Codable {
+struct FetchResult: Codable, Identifiable {
     //standard results from /titles
     let uid,id: String?
     let primaryImage: PrimaryImage?      //PrimaryImage
@@ -27,7 +27,9 @@ struct FetchResult: Codable {
     let originalTitleText: TitleText?   //TitleText
     let releaseYear: ReleaseYear?         //ReleaseYear
     let releaseDate: ReleaseDate?         //ReleaseDate
-
+/**
+    let ratingsSummary: RatingsSummary?
+ */
 
     enum CodingKeys: String, CodingKey {
         case uid = "_id"

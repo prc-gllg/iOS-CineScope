@@ -21,13 +21,9 @@ struct MovieTitlesRequest {
         guard var urlComponents = URLComponents(string: baseURLString.appending("/titles")) else {
             fatalError("Invalid URL")
         }
-        
-        /** add
-                info : base_info
-                        
-         **/
         let params: [String:Any] = [
             "year": year,
+            "info": "base_info",
             "page": "1"
         ]
         
@@ -45,7 +41,7 @@ struct MovieTitlesRequest {
         request.timeoutInterval = 40
     }
     
-    func fetchMovies(completion: @escaping(Result<FetchResults, Error>) -> Void) {
+    func fetchMediaRequest(completion: @escaping(Result<FetchResults, Error>) -> Void) {
         let dataTask = URLSession.shared.dataTask(with: request) { data, response, error in
             
             if let error = error {

@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct ContentView2: View {
+    @StateObject private var viewModel = MediaListViewModel()
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-                .padding()
-            
-            Button("Fetch Movies") {
-                let fetchMovies = MovieTitlesRequest(year: 2023)
-                
-                fetchMovies.fetchMovies { result in
-                    switch result {
-                    case .success(let fetchResults):
-                        print(fetchResults)
-                    case .failure(let error):
-                        print("Error in fetching movies: \(error)")
-                    }
-                }
+        NavigationView {
+            List(viewModel.mediaList, id: \.id) { media in
+                Text(media.titleText?.text ?? "No Title")
             }
+        }
+//        ScrollView {
+//            VStack {
+//                Text("Media List")
+//                ForEach(viewModel.mediaList) { media in
+//                    Text(media.titleText?.text ?? "unknown")
+//                }
+//            }
+//        }
+        .onAppear {
+            viewModel.fetchMedia()
         }
     }
 }
