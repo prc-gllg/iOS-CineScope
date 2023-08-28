@@ -1,5 +1,5 @@
 //
-//  MediaListViewModel.swift
+//  Media_ListViewModel.swift
 //  CineScope
 //
 //  Created by Pierce Gallego on 8/27/23.
@@ -8,13 +8,14 @@
 import Foundation
 
 
-class MediaListViewModel: ObservableObject {
+class Media_ListViewModel: ObservableObject {
     @Published var mediaList: [FetchResult] = []
     func fetchMedia() {
         MovieTitlesRequest(year: 2023).fetchMediaRequest { [self] result in
             switch result {
             case .success(let fetchResults):
                 DispatchQueue.main.async {
+                    print("Data fetched")
                     if let results = fetchResults.results {
                         self.mediaList = results.map{ result in
                             FetchResult(
