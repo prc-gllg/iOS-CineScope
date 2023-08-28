@@ -11,14 +11,16 @@ struct SeriesListView: View {
     @Binding var isView: Int
     @StateObject private var viewModel = Media_ListViewModel()
     var body: some View {
-        List(viewModel.mediaList, id: \.id) { media in
-            VStack {
-                MediaListCell(media: media)
+        ScrollView(.vertical) {
+            LazyVStack(spacing: 10)  {
+                ForEach(viewModel.mediaList) { media in
+                    MediaListCell(media: media, imageSize: CGSize(width: 100, height: 150))
+                }
             }
         }
-        .listStyle(.plain)
         .onAppear {
-            viewModel.fetchMedia()
+            print(SeriesListView.self.Body)
+            viewModel.fetchMedia(type: "tvSeries")
         }
     }
 }

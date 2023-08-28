@@ -18,7 +18,7 @@
 		3227B8682A989271005529ED /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8672A989271005529ED /* Persistence.swift */; };
 		3227B86B2A989271005529ED /* CineScope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8692A989271005529ED /* CineScope.xcdatamodeld */; };
 		3227B8722A989515005529ED /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8712A989515005529ED /* ContentView2.swift */; };
-		3227B8742A989550005529ED /* MovieModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8732A989550005529ED /* MovieModels.swift */; };
+		3227B8742A989550005529ED /* MediaModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8732A989550005529ED /* MediaModels.swift */; };
 		3227B8772A98A493005529ED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8762A98A493005529ED /* NetworkManager.swift */; };
 		3270319E2A9B9D2300FF0A84 /* Media_ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270319D2A9B9D2300FF0A84 /* Media_ListViewModel.swift */; };
 		327031A02A9BB6DA00FF0A84 /* MediaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */; };
@@ -39,7 +39,7 @@
 		3227B8672A989271005529ED /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3227B86A2A989271005529ED /* CineScope.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CineScope.xcdatamodel; sourceTree = "<group>"; };
 		3227B8712A989515005529ED /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
-		3227B8732A989550005529ED /* MovieModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModels.swift; sourceTree = "<group>"; };
+		3227B8732A989550005529ED /* MediaModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModels.swift; sourceTree = "<group>"; };
 		3227B8762A98A493005529ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3270319D2A9B9D2300FF0A84 /* Media_ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media_ListViewModel.swift; sourceTree = "<group>"; };
 		3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCell.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		3227B8752A989585005529ED /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3227B8732A989550005529ED /* MovieModels.swift */,
+				3227B8732A989550005529ED /* MediaModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,7 +224,7 @@
 				3270319E2A9B9D2300FF0A84 /* Media_ListViewModel.swift in Sources */,
 				3227B85F2A98926E005529ED /* CineScopeApp.swift in Sources */,
 				3227B8722A989515005529ED /* ContentView2.swift in Sources */,
-				3227B8742A989550005529ED /* MovieModels.swift in Sources */,
+				3227B8742A989550005529ED /* MediaModels.swift in Sources */,
 				3227B86B2A989271005529ED /* CineScope.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

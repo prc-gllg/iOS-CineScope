@@ -32,7 +32,10 @@ struct ContentView2: View {
                 UITabBar.appearance().scrollEdgeAppearance = appearance
             }
             .tint(Color(.red))
-            .navigationTitle(tabItems[isView].navTitle)
+            .navigationTitle(navigationTitle)
+            .onChange(of: isView) { newValue in
+                navigationTitle = tabItems[newValue].navTitle
+            }
         }
     }
 }

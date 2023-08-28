@@ -24,6 +24,32 @@ struct MovieTitlesRequest {
         let params: [String:Any] = [
             "year": year,
             "info": "base_info",
+            "limit": 50,
+            "page": "1"
+        ]
+        
+        urlComponents.queryItems = params.map {
+            URLQueryItem(name: $0.key, value: "\($0.value)")
+        }
+        
+        guard let url = urlComponents.url else {
+            fatalError("Invalid URL")
+        }
+        
+        request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        request.timeoutInterval = 40
+    }
+    
+    init(year: Int, month: Int) {
+        guard var urlComponents = URLComponents(string: baseURLString.appending("/titles")) else {
+            fatalError("Invalid URL")
+        }
+        let params: [String:Any] = [
+            "year": year,
+            "info": "base_info",
+            "limit": 50,
             "page": "1"
         ]
         

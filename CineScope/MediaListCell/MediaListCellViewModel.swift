@@ -24,7 +24,7 @@ class MediaListCellViewModel: MediaListCellViewModelProtocol {
     @Published var aggregateRatingText: String
     @Published var imageURL: URL?
     
-    init(media: FetchResult) {
+    init(media: Media) {
         self.titleText = media.titleText?.text ?? "No title"
         self.plotText = media.plot?.plotText?.plainText ?? "No plot"
         self.aggregateRatingText = "\(round((media.ratingsSummary?.aggregateRating ?? 0.0) * 10) / 10.0)"

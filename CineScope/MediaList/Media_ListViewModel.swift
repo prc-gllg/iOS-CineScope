@@ -9,16 +9,20 @@ import Foundation
 
 
 class Media_ListViewModel: ObservableObject {
-    @Published var mediaList: [FetchResult] = []
-    func fetchMedia() {
+    @Published var mediaList: [Media] = []
+    func fetchMedia(type: String) {
         MovieTitlesRequest(year: 2023).fetchMediaRequest { [self] result in
             switch result {
             case .success(let fetchResults):
                 DispatchQueue.main.async {
-                    print("Data fetched")
+                    print("Data fetched: \(type)")
+                    self.mediaList = []
                     if let results = fetchResults.results {
-                        self.mediaList = results.map{ result in
-                            FetchResult(
+                        self.mediaList = results.filter { result in
+                            return result.titleType?.id == type
+                        }
+                        .map{ result in
+                            Media(
                                 uid: result.uid,
                                 id: result.id,
                                 primaryImage: result.primaryImage,
@@ -30,7 +34,8 @@ class Media_ListViewModel: ObservableObject {
                                 ratingsSummary: result.ratingsSummary,
                                 genres: result.genres,
                                 runtime: result.runtime,
-                                plot: result.plot)
+                                plot: result.plot
+                            )
                         }
                     }
                 }

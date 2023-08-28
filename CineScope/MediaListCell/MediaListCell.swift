@@ -9,14 +9,15 @@ import SwiftUI
 import URLImage
 
 struct MediaListCell: View {
-    let media: FetchResult
-    let imageSize: CGSize = CGSize(width: 100, height: 150)
-    
+    let media: Media
+    let imageSize: CGSize
     @ObservedObject private var viewModel:  MediaListCellViewModel
     
-    init(media: FetchResult) {
+    
+    init(media: Media, imageSize: CGSize) {
         self.media = media
         viewModel = MediaListCellViewModel(media: media)
+        self.imageSize = imageSize
     }
     
     var body: some View {
@@ -34,9 +35,9 @@ struct MediaListCell: View {
                     .font(.caption2)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
+            .padding(EdgeInsets(top: 15, leading: 0, bottom: 10, trailing: 0))
         }
-        .frame(maxWidth: .infinity, maxHeight: imageSize.height)
+        .frame(maxWidth: .infinity, idealHeight: imageSize.height)
         .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
         .onTapGesture {
             viewModel.handleTap()
@@ -46,7 +47,7 @@ struct MediaListCell: View {
 
 struct MediaListCell_Previews: PreviewProvider {
     static var previews: some View {
-        MediaListCell(media: MockMovieData.sampleMovie)
+        MediaListCell(media: MockMovieData.sampleMovie, imageSize: CGSize(width: 100, height: 150))
     }
 }
 
@@ -63,7 +64,7 @@ struct MediaImage: View {
                     .clipped()
             }
         } else {
-            Image(systemName: "defaultPhoto")
+            Image(systemName: "photo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: size.width, maxHeight: size.height)

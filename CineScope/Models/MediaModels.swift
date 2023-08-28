@@ -1,5 +1,5 @@
 //
-//  MovieModels.swift
+//  MediaModels.swift
 //  CineScope
 //
 //  Created by Pierce Gallego on 8/25/23.
@@ -11,14 +11,14 @@ import Foundation
 struct FetchResults: Codable {
     let page, next: String?
     let entries: Int?
-    let results: [FetchResult]?
+    let results: [Media]?
     
     enum CodingKeys: String, CodingKey {
         case page, next, entries, results
     }
 }
 
-struct FetchResult: Codable, Identifiable {
+struct Media: Codable, Identifiable {
     //standard results from /titles
     let uid,id: String?
     let primaryImage: PrimaryImage?      //PrimaryImage
@@ -142,7 +142,7 @@ struct Plot: Codable {
 //MARK: - MockData
 
 struct MockMovieData {
-    static let sampleMovie = FetchResult(uid: "123456789",
+    static let sampleMovie = Media(uid: "123456789",
                                              id: "00000",
                                              primaryImage: nil,
                                              titleType: nil,
