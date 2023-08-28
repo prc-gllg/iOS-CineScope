@@ -36,7 +36,9 @@ struct ContentView2: View {
             .onChange(of: isView) { newValue in
                 navigationTitle = tabItems[newValue].navTitle
             }
+            .navigationBarTitleDisplayMode(.automatic)
         }
+        .tint(Color.red)
     }
 }
 

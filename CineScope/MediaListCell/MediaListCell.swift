@@ -9,20 +9,19 @@ import SwiftUI
 import URLImage
 
 struct MediaListCell: View {
-    let media: Media
+    let mediaCellItem: Media
     let imageSize: CGSize
     @ObservedObject private var viewModel:  MediaListCellViewModel
     
-    
     init(media: Media, imageSize: CGSize) {
-        self.media = media
+        self.mediaCellItem = media
         viewModel = MediaListCellViewModel(media: media)
         self.imageSize = imageSize
     }
     
     var body: some View {
         HStack(alignment: .center, spacing: 5) {
-            MediaImage(imageURL: viewModel.imageURL, size: imageSize)
+            MediaCellImage(imageURL: viewModel.imageURL, size: imageSize)
                 .cornerRadius(5)
             VStack(alignment: .leading) {
                 Text(viewModel.titleText)
@@ -39,9 +38,9 @@ struct MediaListCell: View {
         }
         .frame(maxWidth: .infinity, idealHeight: imageSize.height)
         .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-        .onTapGesture {
-            viewModel.handleTap()
-        }
+//        .onTapGesture {
+//            viewModel.handleTap()
+//        }
     }
 }
 
@@ -51,7 +50,7 @@ struct MediaListCell_Previews: PreviewProvider {
     }
 }
 
-struct MediaImage: View {
+struct MediaCellImage: View {
     let imageURL: URL?
     let size: CGSize
     var body: some View {

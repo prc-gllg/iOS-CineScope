@@ -14,7 +14,12 @@ struct SeriesListView: View {
         ScrollView(.vertical) {
             LazyVStack(spacing: 10)  {
                 ForEach(viewModel.mediaList) { media in
-                    MediaListCell(media: media, imageSize: CGSize(width: 100, height: 150))
+                    NavigationLink(destination:
+                        MediaDetailView(media: media)
+                    ){
+                        MediaListCell(media: media, imageSize: CGSize(width: 100, height: 150))
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
         }
