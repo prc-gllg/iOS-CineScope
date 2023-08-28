@@ -10,30 +10,36 @@ import URLImage
 
 struct MediaListCell: View {
     let media: FetchResult
-    let imageSize: CGSize = CGSize(width: 100, height: 100)
+    let imageSize: CGSize = CGSize(width: 100, height: 150)
+    
+    @ObservedObject private var viewModel:  MediaListCellViewModel
+    
+    init(media: FetchResult) {
+        self.media = media
+        viewModel = MediaListCellViewModel(media: media)
+    }
+    
     var body: some View {
-        HStack(alignment: .center, spacing: 10) {
-            MediaImage(image: media.primaryImage, size: imageSize)
-//                .background(Color(.red))
+        HStack(alignment: .center, spacing: 5) {
+            MediaImage(imageURL: viewModel.imageURL, size: imageSize)
+                .cornerRadius(5)
             VStack(alignment: .leading) {
-                Text(media.titleText?.text ?? "No Title")
+                Text(viewModel.titleText)
                     .font(.headline)
                 Spacer()
-                Text(media.plot?.plotText?.plainText ?? "No Plot")
+                Text(viewModel.plotText)
                     .font(.caption)
                 Spacer()
-                Text("\(media.ratingsSummary?.aggregateRating ?? 0.0)")
+                Text(viewModel.aggregateRatingText)
                     .font(.caption2)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
-//            .background(Color(.cyan))
         }
         .frame(maxWidth: .infinity, maxHeight: imageSize.height)
         .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-//        .background(Color(.green))
         .onTapGesture {
-            print(media.titleText?.text ?? "No Title")
+            viewModel.handleTap()
         }
     }
 }
@@ -45,15 +51,14 @@ struct MediaListCell_Previews: PreviewProvider {
 }
 
 struct MediaImage: View {
-    let image: PrimaryImage?
+    let imageURL: URL?
     let size: CGSize
     var body: some View {
-        if let imageURLString = image?.url,
-           let imageURL = URL(string: imageURLString) {
+        if let imageURL = imageURL {
             URLImage(imageURL) { image in
                 image
                     .resizable()
-                    .scaledToFill()
+                    .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: size.width, maxHeight: size.height)
                     .clipped()
             }

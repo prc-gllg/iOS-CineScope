@@ -19,14 +19,6 @@ struct ContentView2: View {
             .listStyle(.plain)
             .navigationTitle("Movie List")
         }
-//        ScrollView {
-//            VStack {
-//                Text("Media List")
-//                ForEach(viewModel.mediaList) { media in
-//                    Text(media.titleText?.text ?? "unknown")
-//                }
-//            }
-//        }
         .onAppear {
             viewModel.fetchMedia()
         }

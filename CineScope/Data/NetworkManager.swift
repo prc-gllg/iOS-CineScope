@@ -1,5 +1,5 @@
 //
-//  Data.swift
+//  NetworkManager.swift
 //  CineScope
 //
 //  Created by Pierce Gallego on 8/25/23.

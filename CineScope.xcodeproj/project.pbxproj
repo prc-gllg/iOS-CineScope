@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322419692A9C452600DB2901 /* MediaListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322419682A9C452600DB2901 /* MediaListCellViewModel.swift */; };
 		3227B85F2A98926E005529ED /* CineScopeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B85E2A98926E005529ED /* CineScopeApp.swift */; };
 		3227B8612A98926E005529ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8602A98926E005529ED /* ContentView.swift */; };
 		3227B8632A989271005529ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3227B8622A989271005529ED /* Assets.xcassets */; };
@@ -15,7 +16,7 @@
 		3227B86B2A989271005529ED /* CineScope.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8692A989271005529ED /* CineScope.xcdatamodeld */; };
 		3227B8722A989515005529ED /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8712A989515005529ED /* ContentView2.swift */; };
 		3227B8742A989550005529ED /* MovieModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8732A989550005529ED /* MovieModels.swift */; };
-		3227B8772A98A493005529ED /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8762A98A493005529ED /* Data.swift */; };
+		3227B8772A98A493005529ED /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3227B8762A98A493005529ED /* NetworkManager.swift */; };
 		3270319E2A9B9D2300FF0A84 /* MediaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270319D2A9B9D2300FF0A84 /* MediaListViewModel.swift */; };
 		327031A02A9BB6DA00FF0A84 /* MediaListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */; };
 		327031A32A9BB8F700FF0A84 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 327031A22A9BB8F700FF0A84 /* URLImage */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		322419682A9C452600DB2901 /* MediaListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCellViewModel.swift; sourceTree = "<group>"; };
 		3227B85B2A98926E005529ED /* CineScope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineScope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3227B85E2A98926E005529ED /* CineScopeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineScopeApp.swift; sourceTree = "<group>"; };
 		3227B8602A98926E005529ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,7 +34,7 @@
 		3227B86A2A989271005529ED /* CineScope.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CineScope.xcdatamodel; sourceTree = "<group>"; };
 		3227B8712A989515005529ED /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		3227B8732A989550005529ED /* MovieModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModels.swift; sourceTree = "<group>"; };
-		3227B8762A98A493005529ED /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		3227B8762A98A493005529ED /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3270319D2A9B9D2300FF0A84 /* MediaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListViewModel.swift; sourceTree = "<group>"; };
 		3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,10 +52,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3227B8522A98926E005529ED = {
+		3224196A2A9C59E200DB2901 /* MediaListCell */ = {
 			isa = PBXGroup;
 			children = (
 				3270319F2A9BB6DA00FF0A84 /* MediaListCell.swift */,
+				322419682A9C452600DB2901 /* MediaListCellViewModel.swift */,
+			);
+			path = MediaListCell;
+			sourceTree = "<group>";
+		};
+		3227B8522A98926E005529ED = {
+			isa = PBXGroup;
+			children = (
 				3227B85D2A98926E005529ED /* CineScope */,
 				3227B85C2A98926E005529ED /* Products */,
 			);
@@ -70,6 +80,7 @@
 		3227B85D2A98926E005529ED /* CineScope */ = {
 			isa = PBXGroup;
 			children = (
+				3224196A2A9C59E200DB2901 /* MediaListCell */,
 				3227B8782A98B572005529ED /* Data */,
 				3227B85E2A98926E005529ED /* CineScopeApp.swift */,
 				3227B8602A98926E005529ED /* ContentView.swift */,
@@ -103,7 +114,7 @@
 		3227B8782A98B572005529ED /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				3227B8762A98A493005529ED /* Data.swift */,
+				3227B8762A98A493005529ED /* NetworkManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -186,8 +197,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				327031A02A9BB6DA00FF0A84 /* MediaListCell.swift in Sources */,
-				3227B8772A98A493005529ED /* Data.swift in Sources */,
+				3227B8772A98A493005529ED /* NetworkManager.swift in Sources */,
 				3227B8682A989271005529ED /* Persistence.swift in Sources */,
+				322419692A9C452600DB2901 /* MediaListCellViewModel.swift in Sources */,
 				3227B8612A98926E005529ED /* ContentView.swift in Sources */,
 				3270319E2A9B9D2300FF0A84 /* MediaListViewModel.swift in Sources */,
 				3227B85F2A98926E005529ED /* CineScopeApp.swift in Sources */,
